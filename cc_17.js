@@ -103,3 +103,35 @@
     console.log(`Total spent including loyalty bonus: $${customer2.getTotalSpent()}`)
 
 
+
+//Task 4
+    //Creating more customers
+    const customer3 = new Customer ("Sarah", "srope@icloud.com")
+    customer3.addPurchase(140)
+
+    const customer4 = new VIPCustomer("Jared", "jarReed@gmail.com", "Gold")
+    customer4.addPurchase(460)
+
+    const customer5 = new VIPCustomer("Natalie", "nat09z@gmail.com","Gold")
+    customer5.addPurchase(570)
+
+    const customers = [customer0, customer1, customer2,customer3, customer4, customer5]
+
+       
+    //Calculating total revenue from all customers
+    const totalRev = customers.reduce((total, customer) => total + customer.getTotalSpent(), 0)
+
+    //Finding customers who spent $500+ (including VIP bonus is applicable)
+    const highSpend = customers.filter(customer => customer.getTotalSpent() > 500)
+
+    //Creating array of names and total spent
+    const customerSummary = customers.map(customer => `${customer.name}: $${customer.getTotalSpent()}`)
+
+    //Logging total revenue, high-spending customers, and customer summary
+    console.log(`Total Revenue: $${totalRev}`)
+
+    console.log(`High-spending Customers:`);
+    highSpend.forEach(customer => console.log(`${customer.name}: $${customer.getTotalSpent()}`))
+
+    console.log(`Customer Summary:`)
+    customerSummary.forEach(summary => { console.log(summary) })
