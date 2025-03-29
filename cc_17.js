@@ -74,3 +74,32 @@
 
 
 
+//Task 3
+    //Creating Loyalty bonus value
+    const loyaltyBonus = .1
+
+    //Creating VIPCustomer class extending in Customer class
+    class VIPCustomer extends Customer {
+        constructor(name, email, vipLevel) {
+            super (name, email)
+            this.vipLevel = vipLevel
+        }
+
+    //Returning total spent with 10% loyalty bonus added
+    getTotalSpent() {
+        const total = super.getTotalSpent()
+        const bonus = total * loyaltyBonus
+        return total + bonus 
+    }
+    }
+
+    //Adding new VIP customer
+    const customer2 = new VIPCustomer ("Janette", "janeEtleman@gmail.com", "Platinum")
+        customer2.addPurchase(350)
+
+    //Logging VIP customer name, level, total spent with loyalty bonus (TASK 3)
+    console.log(`Customer: ${customer2.name}`)
+    console.log(`VIP Level: ${customer2.vipLevel}`)
+    console.log(`Total spent including loyalty bonus: $${customer2.getTotalSpent()}`)
+
+
